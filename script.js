@@ -1,4 +1,4 @@
-const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random";
+const RANDOM_QUOTE_API_URL = "https://zenquotes.io/api/random";
 const quoteDisplayElement = document.getElementById("quoteDisplay");
 const quoteInputElement = document.getElementById("quoteInput");
 const timerElement = document.getElementById("timer");
@@ -34,7 +34,7 @@ quoteInputElement.addEventListener("input", () => {
 function getRandomQuote() {
   return fetch(RANDOM_QUOTE_API_URL)
     .then((response) => response.json())
-    .then((data) => data.content);
+    .then((data) => data[0].q);
 }
 async function renderNewQuote() {
   const quote = await getRandomQuote();
