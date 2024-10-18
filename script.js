@@ -1,4 +1,4 @@
-const RANDOM_QUOTE_API_URL = "https://zenquotes.io/api/random";
+const RANDOM_QUOTE_API_URL = "https://quotes-api-self.vercel.app/quote";
 const quoteDisplayElement = document.getElementById("quoteDisplay");
 const quoteInputElement = document.getElementById("quoteInput");
 const timerElement = document.getElementById("timer");
@@ -35,8 +35,8 @@ function getRandomQuote() {
   return fetch(RANDOM_QUOTE_API_URL)
     .then((response) => response.json())
     .then((data) => {
-      console.log(JSON.stringify(data[0])); 
-      return data[0].q;
+      console.log(data.quote); 
+      return data.quote;
     });
 }
 async function renderNewQuote() {
